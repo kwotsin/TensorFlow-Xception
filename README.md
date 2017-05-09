@@ -7,7 +7,7 @@ As an example, the model will be trained on the Flowers dataset.
 ### Contents
 
 1. **xception.py**: The model implementation file.
-2. **xception-preprocessing.py**: This is the exact same preprocessing used for inception models.
+2. **xception_preprocessing.py**: This is the exact same preprocessing used for inception models.
 3. **xception_test.py**: A test file to check for the correctness of the model implementation. Can be executed by itself.
 4. **write_pb.py**: A file to freeze your graph for inference purposes after training your model.
 5. **train_flowers.py**: An example script to train an Xception model on the flowers dataset.
