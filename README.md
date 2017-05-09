@@ -13,7 +13,7 @@ As an example, the model will be trained on the Flowers dataset.
 5. **train_flowers.py**: An example script to train an Xception model on the flowers dataset.
 6. **dataset**: A folder containing the flowers dataset prepared in TFRecords format.
 
-### How to run
+### How to Run
 
 1. run `python train_flowers.py` from the root directory to start training your Xception model from scratch on the Flowers dataset. A log directory will be created.
 2. run `tensorboard --logdir=log` on the root directory to get your tensorboard visualizations.
