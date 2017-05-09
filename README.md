@@ -1,4 +1,4 @@
-# tensorflow-xception
+# TensorFlow-Xception
 TensorFlow implementation of the Xception Model by François Chollet, based on the paper:
 [Xception: Deep Learning with Depthwise Separable Convolutions.](https://arxiv.org/abs/1610.02357)
 
