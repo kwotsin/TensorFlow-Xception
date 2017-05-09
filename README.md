@@ -11,7 +11,8 @@ As an example, the model will be trained on the Flowers dataset.
 3. **xception_test.py**: A test file to check for the correctness of the model implementation. Can be executed by itself.
 4. **write_pb.py**: A file to freeze your graph for inference purposes after training your model.
 5. **train_flowers.py**: An example script to train an Xception model on the flowers dataset.
-6. **dataset**: A folder containing the flowers dataset prepared in TFRecords format.
+6. **eval_flowers.py**: An example script to evaluate your trained Xception model.
+7. **dataset**: A folder containing the flowers dataset prepared in TFRecords format.
 
 ### How to Run
 
