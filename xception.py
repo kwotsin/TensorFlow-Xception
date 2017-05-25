@@ -162,13 +162,9 @@ def xception_arg_scope(weight_decay=0.00001,
   with slim.arg_scope([slim.conv2d, slim.separable_conv2d],
                       weights_regularizer=slim.l2_regularizer(weight_decay),
                       biases_regularizer=slim.l2_regularizer(weight_decay)):
-
-    batch_norm_params = {
-        'decay': batch_norm_decay,
-        'epsilon': batch_norm_epsilon,
-    }
+            
     # Set parameters for batch_norm. Note: Do not set activation function as it's preset to None already.
-    with slim.arg_scope([slim.conv2d],
-                        normalizer_fn=slim.batch_norm,
-                        normalizer_params=batch_norm_params) as scope:
+    with slim.arg_scope([slim.batch_norm],
+                        decay=batch_norm_decay,
+                        epsilon=batch_norm_epsilon) as scope:
       return scope
