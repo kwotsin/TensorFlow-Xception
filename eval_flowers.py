@@ -89,8 +89,7 @@ def run():
 
         #Now we are ready to run in one session
         with sv.managed_session() as sess:
-            for step in xrange(1):
-                sess.run(sv.global_step)
+            for step in xrange(int(num_batches_per_epoch * num_epochs)):
                 #print vital information every start of the epoch as always
                 if step % num_batches_per_epoch == 0:
                     logging.info('Epoch: %s/%s', step / num_batches_per_epoch + 1, num_epochs)
@@ -102,7 +101,6 @@ def run():
                     summaries = sess.run(my_summary_op)
                     sv.summary_computed(sess, summaries)
                     
-
                 #Otherwise just run as per normal
                 else:
                     eval_step(sess, metrics_op = metrics_op, global_step = sv.global_step)
