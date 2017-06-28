@@ -12,7 +12,7 @@ plt.style.use('ggplot')
 slim = tf.contrib.slim
 
 #State your log directory where you can retrieve your model
-log_dir = './log_new'
+log_dir = './log'
 
 #Create a new evaluation log directory to visualize the validation process
 log_eval = './log_eval_test'
