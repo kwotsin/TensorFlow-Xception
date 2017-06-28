@@ -246,8 +246,7 @@ def run():
 
         #Run the managed session
         with sv.managed_session() as sess:
-            #for step in range(num_steps_per_epoch * num_epochs):
-            for step in range(1):
+            for step in range(num_steps_per_epoch * num_epochs):
                 #At the start of every epoch, show the vital information:
                 if step % num_batches_per_epoch == 0:
                     logging.info('Epoch %s/%s', step/num_batches_per_epoch + 1, num_epochs)
