@@ -1,3 +1,4 @@
+from builtins import range
 import tensorflow as tf
 from tensorflow.contrib.framework.python.ops.variables import get_or_create_global_step
 from tensorflow.python.platform import tf_logging as logging
@@ -178,7 +179,7 @@ def run():
         images, _, labels = load_batch(dataset, batch_size=batch_size)
 
         #Know the number steps to take before decaying the learning rate and batches per epoch
-        num_batches_per_epoch = dataset.num_samples / batch_size
+        num_batches_per_epoch = dataset.num_samples // batch_size
         num_steps_per_epoch = num_batches_per_epoch #Because one step is one batch processed
         decay_steps = int(num_epochs_before_decay * num_steps_per_epoch)
 
@@ -245,8 +246,7 @@ def run():
 
         #Run the managed session
         with sv.managed_session() as sess:
-            for step in xrange(num_steps_per_epoch * num_epochs):
-            # for step in xrange(1):
+            for step in range(num_steps_per_epoch * num_epochs):
                 #At the start of every epoch, show the vital information:
                 if step % num_batches_per_epoch == 0:
                     logging.info('Epoch %s/%s', step/num_batches_per_epoch + 1, num_epochs)
@@ -256,10 +256,10 @@ def run():
 
                     # optionally, print your logits and predictions for a sanity check that things are going fine.
                     logits_value, probabilities_value, predictions_value, labels_value = sess.run([logits, probabilities, predictions, labels])
-                    print 'logits: \n', logits_value[:5]
-                    print 'Probabilities: \n', probabilities_value[:5]
-                    print 'predictions: \n', predictions_value[:5]
-                    print 'Labels:\n:', labels_value[:5]
+                    print('logits: \n', logits_value[:5])
+                    print('Probabilities: \n', probabilities_value[:5])
+                    print('predictions: \n', predictions_value[:5])
+                    print('Labels:\n:', labels_value[:5])
 
                 #Log the summaries every 10 step.
                 if step % 10 == 0:
