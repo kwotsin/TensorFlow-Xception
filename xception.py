@@ -1,7 +1,6 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-from builtins import range
 
 import tensorflow as tf
 slim = tf.contrib.slim
@@ -97,7 +96,7 @@ def xception(inputs,
             net = tf.add(net, residual, name='block4_add')
 
             #===========MIDDLE FLOW===============
-            for i in range(8):
+            for i in xrange(8):
                 block_prefix = 'block%s_' % (str(i + 5))
 
                 residual = net
