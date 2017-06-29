@@ -4,6 +4,8 @@ TensorFlow implementation of the Xception Model by François Chollet, based on t
 
 As an example, the model will be trained on the Flowers dataset.
 
+**Python 3 Users:** Please clone the python 3 branch instead of the master branch, as it includes some changes for compatability.
+
 ### Contents
 
 1. **xception.py**: The model implementation file.
