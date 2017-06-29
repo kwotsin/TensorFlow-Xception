@@ -54,13 +54,13 @@ def xception(inputs,
 
             #===========ENTRY FLOW==============
             #Block 1
-            net = slim.conv2d(inputs, 32, [3,3], stride=2, padding='valid', scope='block1_conv1')
+            net = slim.conv2d(inputs, 32, [3,3], stride=2, padding='valid', biases_initializer = None, scope='block1_conv1')
             net = slim.batch_norm(net, scope='block1_bn1')
             net = tf.nn.relu(net, name='block1_relu1')
-            net = slim.conv2d(net, 64, [3,3], padding='valid', scope='block1_conv2')
+            net = slim.conv2d(net, 64, [3,3], padding='valid', biases_initializer = None, scope='block1_conv2')
             net = slim.batch_norm(net, scope='block1_bn2')
             net = tf.nn.relu(net, name='block1_relu2')
-            residual = slim.conv2d(net, 128, [1,1], stride=2, scope='block1_res_conv')
+            residual = slim.conv2d(net, 128, [1,1], stride=2, biases_initializer = None, scope='block1_res_conv')
             residual = slim.batch_norm(residual, scope='block1_res_bn')
 
             #Block 2
@@ -71,7 +71,7 @@ def xception(inputs,
             net = slim.batch_norm(net, scope='block2_bn2')
             net = slim.max_pool2d(net, [3,3], stride=2, padding='same', scope='block2_max_pool')
             net = tf.add(net, residual, name='block2_add')
-            residual = slim.conv2d(net, 256, [1,1], stride=2, scope='block2_res_conv')
+            residual = slim.conv2d(net, 256, [1,1], stride=2, biases_initializer = None, scope='block2_res_conv')
             residual = slim.batch_norm(residual, scope='block2_res_bn')
 
             #Block 3
@@ -83,7 +83,7 @@ def xception(inputs,
             net = slim.batch_norm(net, scope='block3_bn2')
             net = slim.max_pool2d(net, [3,3], stride=2, padding='same', scope='block3_max_pool')
             net = tf.add(net, residual, name='block3_add')
-            residual = slim.conv2d(net, 728, [1,1], stride=2, scope='block3_res_conv')
+            residual = slim.conv2d(net, 728, [1,1], stride=2, biases_initializer = None, scope='block3_res_conv')
             residual = slim.batch_norm(residual, scope='block3_res_bn')
 
             #Block 4
@@ -114,7 +114,7 @@ def xception(inputs,
 
 
             #========EXIT FLOW============
-            residual = slim.conv2d(net, 1024, [1,1], stride=2, scope='block12_res_conv')
+            residual = slim.conv2d(net, 1024, [1,1], stride=2, biases_initializer = None, scope='block12_res_conv')
             residual = slim.batch_norm(residual, scope='block12_res_bn')
             net = tf.nn.relu(net, name='block13_relu1')
             net = slim.separable_conv2d(net, 728, [3,3], scope='block13_dws_conv1')
