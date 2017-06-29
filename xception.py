@@ -64,10 +64,10 @@ def xception(inputs,
             residual = slim.batch_norm(residual, scope='block1_res_bn')
 
             #Block 2
-            net = slim.separable_conv2d(net, 128, [3,3], scope='block2_dws_conv1')
+            net = slim.separable_conv2d(net, 128, [3,3], biases_initializer = None, scope='block2_dws_conv1')
             net = slim.batch_norm(net, scope='block2_bn1')
             net = tf.nn.relu(net, name='block2_relu1')
-            net = slim.separable_conv2d(net, 128, [3,3], scope='block2_dws_conv2')
+            net = slim.separable_conv2d(net, 128, [3,3], biases_initializer = None, scope='block2_dws_conv2')
             net = slim.batch_norm(net, scope='block2_bn2')
             net = slim.max_pool2d(net, [3,3], stride=2, padding='same', scope='block2_max_pool')
             net = tf.add(net, residual, name='block2_add')
@@ -76,10 +76,10 @@ def xception(inputs,
 
             #Block 3
             net = tf.nn.relu(net, name='block3_relu1')
-            net = slim.separable_conv2d(net, 256, [3,3], scope='block3_dws_conv1')
+            net = slim.separable_conv2d(net, 256, [3,3], biases_initializer = None, scope='block3_dws_conv1')
             net = slim.batch_norm(net, scope='block3_bn1')
             net = tf.nn.relu(net, name='block3_relu2')
-            net = slim.separable_conv2d(net, 256, [3,3], scope='block3_dws_conv2')
+            net = slim.separable_conv2d(net, 256, [3,3], biases_initializer = None, scope='block3_dws_conv2')
             net = slim.batch_norm(net, scope='block3_bn2')
             net = slim.max_pool2d(net, [3,3], stride=2, padding='same', scope='block3_max_pool')
             net = tf.add(net, residual, name='block3_add')
@@ -88,10 +88,10 @@ def xception(inputs,
 
             #Block 4
             net = tf.nn.relu(net, name='block4_relu1')
-            net = slim.separable_conv2d(net, 728, [3,3], scope='block4_dws_conv1')
+            net = slim.separable_conv2d(net, 728, [3,3], biases_initializer = None, scope='block4_dws_conv1')
             net = slim.batch_norm(net, scope='block4_bn1')
             net = tf.nn.relu(net, name='block4_relu2')
-            net = slim.separable_conv2d(net, 728, [3,3], scope='block4_dws_conv2')
+            net = slim.separable_conv2d(net, 728, [3,3], biases_initializer = None, scope='block4_dws_conv2')
             net = slim.batch_norm(net, scope='block4_bn2')
             net = slim.max_pool2d(net, [3,3], stride=2, padding='same', scope='block4_max_pool')
             net = tf.add(net, residual, name='block4_add')
@@ -102,13 +102,13 @@ def xception(inputs,
 
                 residual = net
                 net = tf.nn.relu(net, name=block_prefix+'relu1')
-                net = slim.separable_conv2d(net, 728, [3,3], scope=block_prefix+'dws_conv1')
+                net = slim.separable_conv2d(net, 728, [3,3], biases_initializer = None, scope=block_prefix+'dws_conv1')
                 net = slim.batch_norm(net, scope=block_prefix+'bn1')
                 net = tf.nn.relu(net, name=block_prefix+'relu2')
-                net = slim.separable_conv2d(net, 728, [3,3], scope=block_prefix+'dws_conv2')
+                net = slim.separable_conv2d(net, 728, [3,3], biases_initializer = None, scope=block_prefix+'dws_conv2')
                 net = slim.batch_norm(net, scope=block_prefix+'bn2')
                 net = tf.nn.relu(net, name=block_prefix+'relu3')
-                net = slim.separable_conv2d(net, 728, [3,3], scope=block_prefix+'dws_conv3')
+                net = slim.separable_conv2d(net, 728, [3,3], biases_initializer = None, scope=block_prefix+'dws_conv3')
                 net = slim.batch_norm(net, scope=block_prefix+'bn3')
                 net = tf.add(net, residual, name=block_prefix+'add')
 
@@ -117,18 +117,18 @@ def xception(inputs,
             residual = slim.conv2d(net, 1024, [1,1], stride=2, biases_initializer = None, scope='block12_res_conv')
             residual = slim.batch_norm(residual, scope='block12_res_bn')
             net = tf.nn.relu(net, name='block13_relu1')
-            net = slim.separable_conv2d(net, 728, [3,3], scope='block13_dws_conv1')
+            net = slim.separable_conv2d(net, 728, [3,3], biases_initializer = None, scope='block13_dws_conv1')
             net = slim.batch_norm(net, scope='block13_bn1')
             net = tf.nn.relu(net, name='block13_relu2')
-            net = slim.separable_conv2d(net, 1024, [3,3], scope='block13_dws_conv2')
+            net = slim.separable_conv2d(net, 1024, [3,3], biases_initializer = None, scope='block13_dws_conv2')
             net = slim.batch_norm(net, scope='block13_bn2')
             net = slim.max_pool2d(net, [3,3], stride=2, padding='same', scope='block13_max_pool')
             net = tf.add(net, residual, name='block13_add')
 
-            net = slim.separable_conv2d(net, 1536, [3,3], scope='block14_dws_conv1')
+            net = slim.separable_conv2d(net, 1536, [3,3], biases_initializer = None, scope='block14_dws_conv1')
             net = slim.batch_norm(net, scope='block14_bn1')
             net = tf.nn.relu(net, name='block14_relu1')
-            net = slim.separable_conv2d(net, 2048, [3,3], scope='block14_dws_conv2')
+            net = slim.separable_conv2d(net, 2048, [3,3], biases_initializer = None, scope='block14_dws_conv2')
             net = slim.batch_norm(net, scope='block14_bn2')
             net = tf.nn.relu(net, name='block14_relu2')
 
