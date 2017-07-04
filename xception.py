@@ -162,7 +162,7 @@ def xception_arg_scope(weight_decay=0.00001,
   # Set weight_decay for weights in conv2d and separable_conv2d layers.
   with slim.arg_scope([slim.conv2d, slim.separable_conv2d],
                       weights_regularizer=slim.l2_regularizer(weight_decay),
-                      biases_regularizer=slim.l2_regularizer(weight_decay)):
+                      biases_initializer=None):
             
     # Set parameters for batch_norm. Note: Do not set activation function as it's preset to None already.
     with slim.arg_scope([slim.batch_norm],
