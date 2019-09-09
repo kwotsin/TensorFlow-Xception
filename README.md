@@ -36,11 +36,11 @@ You can simply change the dataset files and the appropriate names (i.e. anything
 ### Citation
 If you are using this work in your research, please consider citing:
 ```
-@misc{kwotsin_2019_3403277,
-  author       = {Kwotsin},
+@misc{kwot_sin_lee_2017_3403277,
+  author       = {Kwot Sin Lee},
   title        = {kwotsin/TensorFlow-Xception: TensorFlow-Xception},
-  month        = sep,
-  year         = 2019,
+  month        = may,
+  year         = 2017,
   doi          = {10.5281/zenodo.3403277},
   url          = {https://doi.org/10.5281/zenodo.3403277}
 }
