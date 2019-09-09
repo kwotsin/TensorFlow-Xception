@@ -31,3 +31,19 @@ You can simply change the dataset files and the appropriate names (i.e. anything
 2. [Code from the transfer learning guide](https://github.com/kwotsin/transfer_learning_tutorial)
 3. [Keras implementation of the model](https://github.com/fchollet/deep-learning-models/blob/master/xception.py)
 4. [TF-Slim layers reference](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/layers/python/layers/layers.py)
+
+
+### Citation
+If you are using this work in your research, please consider citing:
+```
+@misc{kwotsin_2019_3403277,
+  author       = {Kwotsin},
+  title        = {kwotsin/TensorFlow-Xception: TensorFlow-Xception},
+  month        = sep,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3403277},
+  url          = {https://doi.org/10.5281/zenodo.3403277}
+}
+```
+
+[![DOI](https://zenodo.org/badge/90740660.svg)](https://zenodo.org/badge/latestdoi/90740660)
